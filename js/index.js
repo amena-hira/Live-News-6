@@ -15,4 +15,14 @@ const displayCategory = (categories) =>{
     });
 }
 
+// Load News
+const loadNews = async(category_id) =>{
+    console.log(category_id);
+    const url = `https://openapi.programming-hero.com/api/news/category/0${category_id}`
+    console.log(url);
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.data);
+}
+
 categoryLoad();
