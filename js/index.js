@@ -39,7 +39,7 @@ const displayNews = (newses) =>{
                 <div class="col-md-10">
                     <div class="card-body">
                         <h5 class="card-title">${news.title}</h5>
-                        <p class="card-text">${news.details}</p>
+                        <p class="card-text">${news.details.slice(0,200)}...</p>
                         
                         <div class="row align-items-center">
                             <div class="col d-flex align-items-center">
