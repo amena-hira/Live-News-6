@@ -39,6 +39,8 @@ const displayNews = (newses) =>{
     } else {
         newsAmount.innerText=`0 news found`;
     }
+
+    // sort based on total_view
     const sortNewses = newses.sort((a,b)=>b.total_view - a.total_view);
     console.log("sorted: ",sortNewses);
     
