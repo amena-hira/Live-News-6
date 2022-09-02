@@ -32,6 +32,14 @@ const loadNews = async(category_id) =>{
     
 }
 const displayNews = (newses) =>{
+    const newsAmount = document.getElementById('news-amount');
+    newsAmount.classList.remove('d-none');
+    if ( newses.length > 0 ) {
+        newsAmount.innerText=`${newses.length} news found`;
+    } else {
+        newsAmount.innerText=`0 news found`;
+    }
+    
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = ``;
     newses.forEach(news => {
