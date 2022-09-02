@@ -84,9 +84,7 @@ const displayNewsDetails = (news) =>{
     modalTitle.innerText = news.title;
     const modalDetails = document.getElementById('modal-details');
     modalDetails.innerHTML = `
-    <img src="${news.image_url}" class="img-fluid mb-2">
-    <p class="mb-0">\News Rating: <span class="text-danger">${news.rating.number}</span> </p>
-    <p class="mt-1">News Badge: <span class="text-danger">${news.rating.badge}</span></p>
+    <p>${news.details}</p>
     `
 }
 
