@@ -2,6 +2,7 @@ const categoryLoad = () =>{
     fetch('https://openapi.programming-hero.com/api/news/categories')
     .then(res => res.json())
     .then(data => displayCategory(data.data.news_category))
+    .catch(error => console.log(error))
 }
 const displayCategory = (categories) =>{
     const categorySection= document.getElementById('category');
@@ -21,9 +22,14 @@ const loadNews = async(category_id) =>{
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/0${category_id}`
     console.log(url);
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNews(data.data);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNews(data.data);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 const displayNews = (newses) =>{
     const newsContainer = document.getElementById('news-container');
@@ -87,9 +93,14 @@ const loadNewsDetails = async(news_id) =>{
     console.log(news_id);
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`
     console.log(url);
-    const res = await fetch(url);
-    const data = await res.json();
-    displayNewsDetails(data.data[0]);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNewsDetails(data.data[0]);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 const displayNewsDetails = (news) =>{
     const modalTitle= document.getElementById('newsModalLabel');
