@@ -39,10 +39,12 @@ const displayNews = (newses) =>{
     } else {
         newsAmount.innerText=`0 news found`;
     }
+    const sortNewses = newses.sort((a,b)=>b.total_view - a.total_view);
+    console.log("sorted: ",sortNewses);
     
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = ``;
-    newses.forEach(news => {
+    sortNewses.forEach(news => {
         const newsCard = document.createElement('div');
         newsCard.classList.add('card');
         newsCard.classList.add('mb-3');
