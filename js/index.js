@@ -119,7 +119,34 @@ const displayNewsDetails = (news) =>{
     modalTitle.innerText = news.title;
     const modalDetails = document.getElementById('modal-details');
     modalDetails.innerHTML = `
-    <p>${news.details}</p>
+    <div class="d-flex justify-content-center">
+        <div class="me-3">
+            <img src = "${news.thumbnail_url}" class="img-fluid">
+            <p>News Thumbnail</p>
+        </div>
+        <div>
+            <img src = "${news.image_url}" class="img-fluid">
+            <p>News Image</p>
+        </div>
+    </div>
+    <img src="${news.author.img}" height="25px" width="25px">
+    <p>Author Name: ${news.author.name ? news.author.name : "No Name Found"}</p>
+    <p>Published Date: ${news.author.published_date}</p>
+    <p><i class="fa-solid fa-eye"></i> ${news.total_view ? news.total_view : '0'}</p>
+    <div class="d-flex">
+        <div class="border border-success rounded me-2 p-3">
+        Others Info:
+            <p>Is Todays Pick: ${news.others_info.is_todays_pick}</p>
+            <p>Is Trending: ${news.others_info.is_trending}</p>
+        </div>
+        <div class="border border-success rounded p-3">
+            Rating:
+            <p>Number: ${news.rating.number}</p>
+            <p>Badge: ${news.rating.badge}</p>
+        </div>
+    </div>
+    <p class="mt-1 border rounded p-2">${news.details}</p>
+    
     `
 }
 
